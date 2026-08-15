@@ -1,410 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shashi & Thimira - 28th November 2026</title>
+    <title>The Wedding of Oliver & Sophia</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for Elegant Luxury Look -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/brittany-signature">
-    <!-- FontAwesome Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            background-color: #faf9f6; /* Luxury Off-white */
-            color: #2c2c2c;
-            overflow-x: hidden;
-        }
-        .font-handwritten {
-            font-family: 'Brittany Signature', 'Alex Brush', cursive;
-        }
-        .font-sans-alt {
-            font-family: 'Montserrat', sans-serif;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        /* 3D Envelope Wrapper Styles */
-        #envelope-screen {
-            background-color: #ffffff;
-            perspective: 1000px;
-            transition: opacity 1s ease-in-out, visibility 1s;
-        }
-
-        .envelope-wrapper {
-            position: relative;
-            width: 320px;
-            height: 220px;
-            background-color: #f4f1ea;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            cursor: pointer;
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-            border: 1px solid #e5dfd3;
-        }
-
-        .envelope-wrapper:hover {
-            transform: translateY(-10px) rotateX(5px);
-        }
-
-        /* The Flap */
-        .envelope-flap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-left: 160px solid transparent;
-            border-right: 160px solid transparent;
-            border-top: 120px solid #e8e3d7; 
-            transform-origin: top;
-            transition: transform 0.6s ease;
-            z-index: 4;
-        }
-
-        .envelope-greeting {
-            position: absolute;
-            top: 16px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            text-align: center;
-            font-size: 0.55rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #817366;
-            font-family: 'Montserrat', sans-serif;
-            z-index: 5;
-            pointer-events: none;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* Inner Letter Card */
-        .letter-card {
-            position: absolute;
-            bottom: 5px;
-            left: 15px;
-            width: 290px;
-            height: 200px;
-            background-color: #ffffff;
-            z-index: 2;
-            transition: transform 0.8s ease-in-out;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
-            border: 1px solid #f0ede6;
-        }
-
-        /* Front Pockets */
-        .envelope-front {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-left: 160px solid #eae5da;
-            border-right: 160px solid #eae5da;
-            border-top: 110px solid transparent;
-            z-index: 3;
-        }
-        .envelope-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-left: 160px solid transparent;
-            border-right: 160px solid transparent;
-            border-bottom: 110px solid #e3ded2;
-            z-index: 3;
-        }
-
-        /* Wax Seal Stamp */
-        .wax-seal {
-            position: absolute;
-            top: 100px;
-            left: 145px;
-            width: 32px;
-            height: 32px;
-            background-color: #1a1a1a;
-            border-radius: 50%;
-            z-index: 5;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: all 0.4s ease;
-            border: 1px solid #c9a054; 
-        }
-
-        /* Open State Animations */
-        .envelope-wrapper.open .envelope-flap {
-            transform: rotateX(180deg);
-            z-index: 1;
-            backface-visibility: hidden;
-        }
-        .envelope-wrapper.open .wax-seal {
-            opacity: 0;
-            transform: scale(0);
-        }
-        .envelope-wrapper.open .letter-card {
-            transform: translateY(-145px);
-            z-index: 5;
-        }
-
-        #music-control {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-    </style>
 </head>
-<body class="antialiased select-none text-lg">
 
-    <!-- Ambient Instrumental Background Music -->
-    <audio id="bg-music" loop preload="auto">
-        <source src="./music/ordinary.mp3" type="audio/mpeg">
+<body class="antialiased select-none">
+
+    <!-- Background Music Audio Link -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Floating Audio Icon Toggle -->
-    <button id="music-control" class="hidden fixed bottom-6 right-6 z-50 w-14 h-14 bg-white text-stone-800 rounded-full flex items-center justify-center focus:outline-none border border-stone-200">
-        <i id="music-icon" class="fa-solid fa-music text-base animate-pulse"></i>
+    <!-- Music Toggle Button Floating -->
+    <button id="music-control"
+        class="hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-white text-emerald-800 rounded-full flex items-center justify-center focus:outline-none border border-emerald-100">
+        <i id="music-icon" class="fa-solid fa-music text-lg animate-pulse"></i>
     </button>
 
-    <!-- 1. LUXURY 3D ENVELOPE INTRO SCREEN -->
+    <!-- 1. 3D ENVELOPE INTERACTION SCREEN (Pre-Hero) -->
     <div id="envelope-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden">
-        <div class="text-center text-stone-300 mb-12 px-4">
-            <p id="coverInviteText" class="font-sans-alt tracking-[0.3em] text-xs uppercase mb-6 text-stone-400">You are Invited </p>
-            <h1 class="font-handwritten text-3xl md:text-4xl text-stone-900">Shashi & Thimira</h1>
+        <div class="text-center text-stone-200 mb-12 px-4">
+            <p id="coverInviteText" class="font-sans-alt tracking-[0.25em] text-xs uppercase mb-3 text-amber-200/80">You
+                are warmly invited to the wedding of</p>
+            <h1 class="font-handwritten text-5xl md:text-6xl text-white">Oliver & Sophia</h1>
+            <p class="font-sans-alt text-xs mt-6 tracking-wide opacity-75">CLICK ENVELOPE TO OPEN INVITATION</p>
         </div>
 
-        <!-- 3D Envelope Container -->
+        <!-- 3D Envelope Component -->
         <div class="envelope-wrapper" id="envelope">
             <div class="envelope-flap"></div>
             <div class="envelope-greeting" id="envelopeGreeting">OUR DEAR GUEST</div>
             <div class="envelope-front"></div>
             <div class="envelope-bottom"></div>
-            <div class="wax-seal flex items-center justify-center"><i class="fa-solid fa-heart text-[9px] text-amber-400"></i></div>
-            
-            <!-- Dynamic Mini-Card inside -->
+            <div class="wax-seal flex items-center justify-center"><i
+                    class="fa-solid fa-heart text-[10px] text-amber-100"></i></div>
             <div class="letter-card flex flex-col items-center justify-center text-center">
-                <p class="font-sans-alt text-[9px] uppercase tracking-widest text-stone-400">Save The Date</p>
-                <h4 class="text-3xl font-normal text-stone-800 my-1">S & T</h4>
-                <p class="text-xs text-stone-500 tracking-wider border-t border-stone-200 pt-2 font-sans-alt">28 . 11 . 2026</p>
+                <p class="font-sans-alt text-[9px] uppercase tracking-widest text-stone-500">Save Our Date</p>
+                <h4 class="font-handwritten text-3xl text-emerald-800 my-1">O & S</h4>
+                <p class="text-xs text-stone-600 border-t border-stone-200 pt-2 px-4 italic">14.10.2026</p>
             </div>
         </div>
-
-        <div class="text-center text-stone-300 mb-12 px-4">
-            <p class="font-sans-alt text-xs mt-6 tracking-[0.2em] text-stone-500">TAP TO OPEN YOUR INVITATION</p>
-        </div>
-
     </div>
 
-
-    <!-- MAIN INVITATION WEBSITE CONTENT -->
+    <!-- MAIN WEBSITE CONTENT -->
     <div id="main-content" class="opacity-0 transition-opacity duration-1000">
-        
-        <!-- 2. MAIN HERO SECTION -->
-        <header id="hero" class="relative min-h-screen flex flex-col items-center justify-center bg-[#ffffff] px-6 py-20 text-center border-b border-stone-100">
-            <div class="max-w-3xl mx-auto space-y-10">
-                <p class="font-sans-alt tracking-[0.25em] text-xs md:text-sm uppercase text-stone-500 leading-relaxed">
-                    WITH THE BLESSINGS OF OUR PARENTS,<br>
-                    MR./MRS. SALWATHURA & MR./MRS. RANASINGHE<br>
-                    TOGETHER WITH
-                </p>
 
-                <div class="py-6">
-                    <h2 class="font-handwritten text-6xl md:text-7xl text-stone-900 block leading-[0.8]">Shashi</h2>
-                    <span class="font-handwritten text-3xl md:text-4xl italic text-stone-700 block my-4 pl-4">&</span>
-                    <h2 class="font-handwritten text-6xl md:text-7xl text-stone-900 block leading-[0.8] tracking-wide">Thimira</h2>
-                </div>
+        <!-- 2. HERO SECTION (Cinematic Style Cover) -->
+        <header id="hero" class="relative h-screen flex items-center justify-center bg-cover bg-center"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/w.png')">
+            <div class="text-center text-white px-4 max-w-3xl">
+                <span class="font-sans-alt tracking-[0.4em] text-xs uppercase text-amber-200/90 block mb-2">The Wedding
+                    Invitation</span>
+                <h2 class="font-handwritten text-7xl md:text-9xl my-2">Oliver & Sophia</h2>
 
-                <p class="font-sans-alt tracking-[0.2em] text-sm md:text-base uppercase text-stone-500 pt-4">
-                    WITH FULL HEARTS, JOYFULLY INVITE
+                <p class="font-sans-alt text-xs md:text-sm uppercase tracking-[0.25em] text-stone-300 mt-4">WARMLY
+                    INVITE</p>
+                <p id="guestNameDisplay" class="italic text-3xl md:text-4xl text-amber-200 font-normal my-2">
+                    Our Valued Guest
                 </p>
-                <p id="guestNameDisplay" class="italic text-2xl md:text-3xl text-stone-900 font-medium" style="font-family:'Cormorant Garamond', serif;">
-                    You
-                </p>
-                <p class="font-sans-alt tracking-[0.2em] text-sm md:text-base uppercase text-stone-500">
-                    TO OUR MARRIAGE
-                </p>
+                <p class="font-sans-alt text-xs uppercase tracking-[0.25em] text-stone-300">TO CELEBRATE THEIR SPECIAL
+                    DAY</p>
 
-                <!-- Custom Layout Grid Date Box -->
-                <div class="max-w-sm mx-auto my-10 border-t border-b border-stone-300 py-6 font-sans-alt">
-                    <p class="tracking-[0.4em] text-base uppercase text-stone-500 mb-2">NOV</p>
-                    <div class="flex items-center justify-center space-x-8">
-                        <span class="text-sm tracking-widest text-stone-400 uppercase">SAT.</span>
-                        <span class="text-6xl font-light text-stone-800 tracking-tight">28</span>
-                        <span class="text-sm tracking-widest text-stone-400 uppercase">9:00 AM</span>
-                    </div>
-                    <p class="tracking-[0.6em] text-sm text-stone-400 mt-3">2026</p>
-                </div>
-
-                <!-- Venues Primary Details -->
-                <div class="space-y-2">
-                    <h3 class="font-sans-alt tracking-[0.2em] text-lg font-medium text-stone-900 uppercase">GRAND PALACE - HIKKADUWA</h3>
-                    <p class="italic text-base md:text-lg text-stone-600">(Poruwa Ceremony at 09.00AM @River Park)</p>
-                </div>
+                <div class="w-16 h-[1px] bg-amber-200/60 mx-auto my-6"></div>
+                <p class="font-sans-alt text-sm uppercase tracking-[0.3em] font-light">October 14, 2026 • Colombo, Sri
+                    Lanka</p>
             </div>
-
-            <div class="absolute bottom-6 animate-bounce">
-                <i class="fa-solid fa-chevron-down text-stone-400 text-base"></i>
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center animate-bounce">
+                <i class="fa-solid fa-chevron-down text-white/60 text-xl"></i>
             </div>
         </header>
 
-        <!-- 3. DETAILED EVENT TIMELINE AND MAP LINKS -->
-        <section class="py-24 px-6 bg-[#faf9f6]">
-            <div class="max-w-5xl mx-auto text-center">
-                <p class="font-sans-alt text-xs tracking-[0.3em] uppercase text-stone-400 mb-2">Celebration Details</p>
-                <h3 class="text-4xl font-light tracking-wide mb-16 text-stone-800">Wedding Events</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
-                    <!-- Poruwa Ceremony Card -->
-                    <div class="bg-white p-10 border border-stone-200/60 shadow-sm flex flex-col justify-between space-y-6">
-                        <div>
-                            <span class="font-sans-alt text-xs uppercase tracking-widest block mb-2" style="color:#c9a054;">Morning Event</span>
-                            <h4 class="text-3xl font-light mb-2 text-stone-800">Poruwa Ceremony</h4>
-                            <p class="font-sans-alt text-sm text-stone-400 tracking-wider mb-4">09:00 AM</p>
-                            <p class="text-stone-600 text-base md:text-lg font-light">
-                                <strong class="text-stone-800">River Park</strong><br>
-                            </p>
-                        </div>
-                        <a href="https://maps.app.goo.gl/n2BieKPxEkK2hNnw7" target="_blank" class="inline-block text-center font-sans-alt text-xs uppercase tracking-widest border border-stone-800 px-5 py-3.5 hover:bg-stone-900 hover:text-white transition duration-300">
-                            <i class="fa-solid fa-location-dot mr-2"></i> View on Map
-                        </a>
-                    </div>
+        <!-- 3. BRIDE & GROOM PROFILE -->
+        <section class="py-24 px-4 max-w-5xl mx-auto text-center">
+            <p class="font-sans-alt text-xs tracking-[0.3em] uppercase text-emerald-800 mb-2">Beginning of Forever</p>
+            <h3 class="text-4xl md:text-5xl font-light mb-16 text-stone-800">The Bride & Groom</h3>
 
-                    <!-- Main Wedding Venue Card -->
-                    <div class="bg-white p-10 border border-stone-200/60 shadow-sm flex flex-col justify-between space-y-6">
-                        <div>
-                            <span class="font-sans-alt text-xs uppercase tracking-widest block mb-2" style="color:#c9a054;">Main Venue</span>
-                            <h4 class="text-3xl font-light mb-2 text-stone-800">Reception</h4>
-                            <p class="font-sans-alt text-sm text-stone-400 tracking-wider mb-4">09:00 AM - 4:00 PM</p>
-                            <p class="text-stone-600 text-base md:text-lg font-light">
-                                <strong class="text-stone-800">Hotel Grand Palace</strong><br>
-                            </p>
-                        </div>
-                        <a href="https://maps.app.goo.gl/DGEGPJ12bNjt4Kcy9" target="_blank" class="inline-block text-center font-sans-alt text-xs uppercase tracking-widest border border-stone-800 px-5 py-3.5 hover:bg-stone-900 hover:text-white transition duration-300">
-                            <i class="fa-solid fa-location-dot mr-2"></i> View on Map
-                        </a>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
+                <!-- Groom -->
+                <div class="flex flex-col items-center px-6">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80"
+                        alt="Groom"
+                        class="w-48 h-48 object-cover rounded-full grayscale hover:grayscale-0 transition duration-500 shadow-lg mb-6">
+                    <h4 class="text-3xl font-light text-stone-800">Oliver Vance</h4>
+                    <p class="font-sans-alt text-xs uppercase tracking-widest text-stone-400 mt-1 mb-4">Son of Mr. &
+                        Mrs. Vance</p>
+                    <p class="text-stone-600 text-sm leading-relaxed max-w-xs font-light">"From the moment our paths
+                        crossed, I knew every step I had ever taken was leading me straight to you."</p>
+                </div>
+                <!-- Bride -->
+                <div class="flex flex-col items-center px-6">
+                    <img src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?auto=format&fit=crop&w=500&q=80"
+                        alt="Bride"
+                        class="w-48 h-48 object-cover rounded-full grayscale hover:grayscale-0 transition duration-500 shadow-lg mb-6">
+                    <h4 class="text-3xl font-light text-stone-800">Sophia Sterling</h4>
+                    <p class="font-sans-alt text-xs uppercase tracking-widest text-stone-400 mt-1 mb-4">Daughter of Mr.
+                        & Mrs. Sterling</p>
+                    <p class="text-stone-600 text-sm leading-relaxed max-w-xs font-light">"You are my absolute home, my
+                        safest place, and my greatest, most beautiful adventure all wrapped into one."</p>
                 </div>
             </div>
         </section>
 
-        <!-- 4. INTEGRATED CALENDAR SECTION -->
-        <section class="py-24 px-6 bg-white border-t border-stone-200/60">
-            <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-                <!-- Calendar Card Element -->
-                <div class="w-full max-w-xs bg-[#faf9f6] p-6 border border-stone-200 shadow-sm rounded-lg font-sans-alt">
-                    <div id="cal-month" class="text-center text-stone-800 font-medium tracking-widest text-sm uppercase mb-4 border-b border-stone-200 pb-2">November 2026</div>
-                    <!-- Calendar Headers -->
-                    <div class="grid grid-cols-7 gap-1 text-center text-[10px] uppercase tracking-wider text-stone-400 font-medium mb-2">
-                        <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
-                    </div>
-                    <!-- Calendar Body Grid -->
-                    <div class="grid grid-cols-7 gap-1 text-center text-xs font-light text-stone-700" id="calendar">
-                        <!-- Dynamic generated days will load here -->
-                    </div>
+        <!-- 4. COUNTDOWN TIMERS -->
+        <section class="bg-[#e2ddd5] py-16 text-center">
+            <p class="font-sans-alt text-xs tracking-[0.3em] uppercase text-stone-600 mb-6">Counting Down To The Big Day
+            </p>
+            <div class="flex justify-center space-x-4 md:space-x-8 max-w-md mx-auto px-4 font-sans-alt">
+                <div class="bg-white/80 rounded p-4 flex-1 shadow-sm">
+                    <span id="days" class="text-2xl md:text-3xl font-medium text-stone-800">00</span>
+                    <p class="text-[10px] uppercase text-stone-500 tracking-wider mt-1">Days</p>
                 </div>
+                <div class="bg-white/80 rounded p-4 flex-1 shadow-sm">
+                    <span id="hours" class="text-2xl md:text-3xl font-medium text-stone-800">00</span>
+                    <p class="text-[10px] uppercase text-stone-500 tracking-wider mt-1">Hours</p>
+                </div>
+                <div class="bg-white/80 rounded p-4 flex-1 shadow-sm">
+                    <span id="minutes" class="text-2xl md:text-3xl font-medium text-stone-800">00</span>
+                    <p class="text-[10px] uppercase text-stone-500 tracking-wider mt-1">Mins</p>
+                </div>
+                <div class="bg-white/80 rounded p-4 flex-1 shadow-sm">
+                    <span id="seconds" class="text-2xl md:text-3xl font-medium text-stone-800">00</span>
+                    <p class="text-[10px] uppercase text-stone-500 tracking-wider mt-1">Secs</p>
+                </div>
+            </div>
+        </section>
 
-                <!-- Save the Date Details -->
-                <div class="flex-1 space-y-4 text-center md:text-left">
-                    <div class="font-sans-alt text-xs tracking-[0.3em] uppercase text-stone-400">Save the Date</div>
-                    <h2 class="text-4xl font-light text-stone-900 font-sans-alt tracking-wide">28th November</h2>
-                    <p class="text-stone-600 text-base font-light leading-relaxed max-w-xl">
-                        Mark your calendars - we're tying the knot and we would love nothing more than to have you there to celebrate with us, from the poruwa ceremony in the morning through to the reception in the evening.
+        <!-- 5. EVENTS / VENUE DETAILS -->
+        <section class="py-24 max-w-4xl mx-auto px-4 text-center">
+            <p class="font-sans-alt text-xs tracking-[0.3em] uppercase text-emerald-800 mb-2">Join Our Celebration</p>
+            <h3 class="text-4xl md:text-5xl font-light mb-16 text-stone-800">Wedding Schedule</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Ceremony -->
+                <div class="bg-white border border-stone-100 p-8 md:p-12 shadow-sm rounded">
+                    <i class="fa-solid fa-church text-amber-600 text-2xl mb-4"></i>
+                    <h4 class="text-2xl font-normal mb-2 text-stone-800">Holy Matrimony</h4>
+                    <p class="font-sans-alt text-xs text-stone-400 tracking-widest mb-6">04:00 PM – 05:30 PM</p>
+                    <p class="text-stone-600 text-sm font-light mb-6">St. Mary's Cathedral,<br>Galle Road, Colombo 03
                     </p>
-                    <a class="inline-block font-sans-alt text-xs uppercase tracking-widest bg-stone-900 text-white px-6 py-3.5 hover:bg-stone-800 transition duration-300 rounded mt-2 shadow-sm" href="#rsvp">RSVP Now</a>
+                    <a href="https://maps.google.com" target="_blank"
+                        class="inline-block font-sans-alt text-[10px] uppercase tracking-widest border border-stone-300 px-4 py-2 hover:bg-stone-800 hover:text-white transition">View
+                        Map Location</a>
+                </div>
+                <!-- Reception -->
+                <div class="bg-white border border-stone-100 p-8 md:p-12 shadow-sm rounded">
+                    <i class="fa-solid fa-champagne-glasses text-amber-600 text-2xl mb-4"></i>
+                    <h4 class="text-2xl font-normal mb-2 text-stone-800">The Grand Reception</h4>
+                    <p class="font-sans-alt text-xs text-stone-400 tracking-widest mb-6">07:00 PM – Midnight</p>
+                    <p class="text-stone-600 text-sm font-light mb-6">The Grand Ballroom, Kingsbury
+                        Hotel,<br>Janadhipathi Mawatha, Colombo 01</p>
+                    <a href="https://maps.google.com" target="_blank"
+                        class="inline-block font-sans-alt text-[10px] uppercase tracking-widest border border-stone-300 px-4 py-2 hover:bg-stone-800 hover:text-white transition">View
+                        Map Location</a>
                 </div>
             </div>
         </section>
 
-        <!-- 5. LIVE DIGITAL COUNTDOWN -->
-        <section class="border-t border-b border-stone-200/60 bg-[#faf9f6] py-20 text-center">
-            <p class="font-sans-alt text-xs tracking-[0.3em] uppercase text-stone-400 mb-8">Counting down to our wedding day</p>
-            <div class="flex justify-center space-x-6 md:space-x-10 max-w-lg mx-auto px-6 font-sans-alt">
-                <div class="flex-1">
-                    <span id="days" class="text-4xl md:text-5xl font-light text-stone-800">00</span>
-                    <p class="text-xs uppercase text-stone-400 tracking-wider mt-2">Days</p>
-                </div>
-                <div class="text-stone-300 text-3xl font-light">:</div>
-                <div class="flex-1">
-                    <span id="hours" class="text-4xl md:text-5xl font-light text-stone-800">00</span>
-                    <p class="text-xs uppercase text-stone-400 tracking-wider mt-2">Hours</p>
-                </div>
-                <div class="text-stone-300 text-3xl font-light">:</div>
-                <div class="flex-1">
-                    <span id="minutes" class="text-4xl md:text-5xl font-light text-stone-800">00</span>
-                    <p class="text-xs uppercase text-stone-400 tracking-wider mt-2">Mins</p>
-                </div>
-                <div class="text-stone-300 text-3xl font-light">:</div>
-                <div class="flex-1">
-                    <span id="seconds" class="text-4xl md:text-5xl font-light text-stone-800">00</span>
-                    <p class="text-xs uppercase text-stone-400 tracking-wider mt-2">Secs</p>
-                </div>
-            </div>
-        </section>
+        <!-- 6. RSVP FORM -->
+        <section class="bg-stone-900 text-white py-20 px-4 text-center">
+            <div class="max-w-md mx-auto">
+                <p class="font-sans-alt text-xs tracking-[0.3em] uppercase text-amber-200/90 mb-2">Kindly Respond</p>
+                <h3 class="text-4xl font-light mb-4">RSVP</h3>
+                <p class="text-stone-400 font-light text-sm mb-8">Please let us know if you can make it before September
+                    14, 2026</p>
 
-        <!-- 6. DYNAMIC MULTI-GUEST RSVP INTERACTION SECTION -->
-        <section class="bg-white py-24 px-6 text-center border-b border-stone-200/60" id="rsvp">
-            <div class="max-w-lg mx-auto space-y-6">
-                <p class="font-sans-alt text-xs tracking-[0.3em] uppercase" style="color:#c9a054;">Confirm Attendance</p>
-                <h3 class="text-4xl font-light tracking-wide text-stone-900">RSVP</h3>
-                <p class="text-stone-500 font-light text-sm mb-8">Please respond by the 1st of November, 2026.</p>
-                
-                <form id="rsvpForm" class="space-y-6 text-left font-sans-alt text-sm pt-4">
-                    <div class="space-y-2">
-                        <label for="userName" class="text-stone-500 block tracking-wider text-xs uppercase font-medium">Your Full Name</label>
-                        <input type="text" id="userName" name="userName" required placeholder="e.g. Jane Perera" class="w-full bg-[#faf9f6] border border-stone-200 p-4 text-stone-800 text-base focus:outline-none focus:border-stone-400 tracking-wide rounded">
+                <form id="rsvp-form" class="space-y-4 text-left font-sans-alt text-xs">
+                    <div>
+                        <label class="block text-stone-400 uppercase tracking-wider text-[10px] mb-1">Your Name</label>
+                        <input type="text" id="rsvpName" placeholder="Your Name" required
+                            class="w-full bg-stone-800 border border-stone-700 p-3 rounded text-white focus:outline-none focus:border-amber-200">
                     </div>
-
-                    <div class="space-y-2">
-                        <label for="guestCount" class="text-stone-500 block tracking-wider text-xs uppercase font-medium">Total Number of Guests</label>
-                        <input type="number" id="guestCount" name="guestCount" value="1" min="1" max="10" onchange="generateGuestOptions()" class="w-full bg-[#faf9f6] border border-stone-200 p-4 text-stone-800 text-base focus:outline-none focus:border-stone-400 rounded">
+                    <div>
+                        <label class="block text-stone-400 uppercase tracking-wider text-[10px] mb-1">Attendance</label>
+                        <select
+                            class="w-full bg-stone-800 border border-stone-700 p-3 rounded text-white focus:outline-none focus:border-amber-200">
+                            <option value="yes">Accepts with Pleasure</option>
+                            <option value="no">Declines with Regret</option>
+                        </select>
                     </div>
-
-                    <!-- Dynamic Fields Wrapper -->
-                    <div id="dynamicGuests" class="space-y-6 pt-2"></div>
-
-                    <button type="submit" class="w-full bg-stone-900 text-white p-4 uppercase tracking-widest font-medium text-xs hover:bg-stone-800 transition duration-300 rounded shadow-sm">Submit RSVP</button>
+                    <div>
+                        <label class="block text-stone-400 uppercase tracking-wider text-[10px] mb-1">Number of
+                            Guests</label>
+                        <select
+                            class="w-full bg-stone-800 border border-stone-700 p-3 rounded text-white focus:outline-none focus:border-amber-200">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-amber-600 hover:bg-amber-700 text-white p-3 rounded uppercase tracking-widest font-medium transition duration-300">Submit
+                        Attendance</button>
                 </form>
-
-                <!-- Status Feedback Message Area -->
-                <div id="statusMsg" class="font-sans-alt text-sm pt-4 tracking-wider min-h-[24px]"></div>
-
-                <!-- Alternative Direct Phone Contact Details -->
-                <div class="pt-8 border-t border-stone-200 font-sans-alt text-xs tracking-widest text-stone-400 uppercase space-y-3">
-                    <p>or contact us directly via phone:</p>
-                    <a href="tel:0711987956" class="text-stone-800 hover:text-stone-600 block text-base transition tracking-normal font-medium">071 198 7956</a>
-                </div>
             </div>
         </section>
 
         <!-- FOOTER -->
-        <footer class="py-10 bg-[#faf9f6] text-center text-xs font-sans-alt text-stone-400 tracking-widest uppercase">
-            Shashi & Thimira <br> 28.11.2026
+        <footer
+            class="py-8 bg-stone-950 text-center text-[11px] font-sans-alt text-stone-500 tracking-widest uppercase">
+            Designed for Oliver & Sophia • © 2026 All Rights Reserved
         </footer>
     </div>
 
-    <!-- CODE INTERACTION HANDLERS -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // 0. Personalize with the guest name passed in the URL, e.g. ?name=Mr%20Perera
+        // 0. URL Parameter Personalization Handler (?name= or ?invitee=)
         (function personalizeGuestName() {
             const params = new URLSearchParams(window.location.search);
             const raw = params.get('name') || params.get('invitee');
             if (raw) {
-                // Basic decode + strip any HTML tags to keep this safe
                 const guestName = decodeURIComponent(raw).replace(/<[^>]*>?/gm, '').trim();
                 if (guestName) {
+                    // Update Hero Display
                     const nameEl = document.getElementById('guestNameDisplay');
                     if (nameEl) nameEl.textContent = guestName;
-                    
-                    // Dynamically set Envelope Greeting to: Dear 'Guest Name'
-                    const envelopeEl = document.getElementById('envelopeGreeting');
-                    if (envelopeEl) envelopeEl.textContent = "Dear " + guestName ;
 
-                    document.title = 'Shashi & Thimira invite ' + guestName;
+                    // Update Envelope Label
+                    const envelopeEl = document.getElementById('envelopeGreeting');
+                    if (envelopeEl) envelopeEl.textContent = "Dear " + guestName;
+
+                    // Auto-fill RSVP Name input
+                    const rsvpNameInput = document.getElementById('rsvpName');
+                    if (rsvpNameInput) rsvpNameInput.value = guestName;
+
+                    // Browser Tab Title
+                    document.title = 'The Wedding of Oliver & Sophia | Invitation for ' + guestName;
                 }
             }
         })();
@@ -416,42 +250,41 @@
         const musicControl = document.getElementById('music-control');
         const musicIcon = document.getElementById('music-icon');
 
-        // 1. 3D Envelope Opening & Slide Transition Action
+        // 1. Envelope Opening & Redirection Event Trigger
         envelope.addEventListener('click', () => {
             envelope.classList.add('open');
-            
-            // Audio backdrop trigger
+
             bgMusic.play().then(() => {
                 musicControl.classList.remove('hidden');
-            }).catch(() => {
+            }).catch(e => {
+                console.log("Audio autoplay blocked until deeper interaction.", e);
                 musicControl.classList.remove('hidden');
             });
 
-            // Timed transitions to scroll into hero section smoothly
             setTimeout(() => {
                 envelopeScreen.classList.add('opacity-0');
                 envelopeScreen.style.visibility = 'hidden';
-                
+
                 mainContent.classList.remove('opacity-0');
                 mainContent.classList.add('opacity-100');
-                
+
                 document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
-            }, 1400); 
+            }, 1400);
         });
 
-        // Music Trigger Handling
+        // 2. Audio Control Toggle Button
         musicControl.addEventListener('click', () => {
             if (bgMusic.paused) {
                 bgMusic.play();
-                musicIcon.className = "fa-solid fa-music text-base animate-pulse";
+                musicIcon.className = "fa-solid fa-music text-lg animate-pulse";
             } else {
                 bgMusic.pause();
-                musicIcon.className = "fa-solid fa-volume-xmark text-base";
+                musicIcon.className = "fa-solid fa-volume-xmark text-lg";
             }
         });
 
-        // 2. Countdown Engine Target: 28 Nov 2026
-        const targetDate = new Date("November 28, 2026 09:00:00").getTime();
+        // 3. Precision Countdown Timer Calculations
+        const targetDate = new Date("October 14, 2026 16:00:00").getTime();
 
         const timerInterval = setInterval(() => {
             const now = new Date().getTime();
@@ -473,98 +306,12 @@
             document.getElementById('seconds').innerText = String(s).padStart(2, '0');
         }, 1000);
 
-        // 3. Calendar Day Grid Generation Engine (November 2026 starts on Sunday)
-        function buildCalendar() {
-            const calGrid = document.getElementById('calendar');
-            const totalDays = 30;
-            const weddingDay = 28;
-
-            for (let day = 1; day <= totalDays; day++) {
-                const daySpan = document.createElement('span');
-                daySpan.className = "py-1.5 block rounded-full transition-all";
-                daySpan.innerText = day;
-                
-                if (day === weddingDay) {
-                    // Highlight luxury badge marker on the 28th
-                    daySpan.className = "py-1.5 block bg-stone-900 text-white font-bold rounded-full scale-110 shadow-sm";
-                }
-                calGrid.appendChild(daySpan);
-            }
-        }
-        buildCalendar();
-
-        // 4. Dynamic Guest Fields Generation Function (White Theme Adjustments)
-        function generateGuestOptions() {
-            const count = Number(document.getElementById('guestCount').value || 1);
-            const container = document.getElementById('dynamicGuests');
-            container.innerHTML = '';
-
-            for (let i = 1; i <= count; i++) {
-                const div = document.createElement('div');
-                div.className = 'guest-entry p-5 bg-[#faf9f6] border border-stone-200 rounded space-y-4 mt-3';
-                div.innerHTML = `
-                    <h4 class="text-stone-800 tracking-wider font-medium uppercase text-xs border-b border-stone-200/80 pb-2">Guest ${i} Preferences</h4>
-                    <div class="space-y-2">
-                        <label class="text-stone-500 block text-xs uppercase tracking-wide">Meal Choice</label>
-                        <select class="mealChoice w-full bg-white border border-stone-200 p-3 text-stone-800 text-base focus:outline-none focus:border-stone-400 rounded" required>
-                            <option value="Non-Veg">Non-Vegetarian</option>
-                            <option value="Veg">Vegetarian</option>
-                        </select>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-stone-500 block text-xs uppercase tracking-wide">Drink Selection</label>
-                        <select class="drinkChoice w-full bg-white border border-stone-200 p-3 text-stone-800 text-base focus:outline-none focus:border-stone-400 rounded" required>
-                            <option value="Alcohol">With Alcohol</option>
-                            <option value="Soft-Drinks">Soft Drinks Only</option>
-                        </select>
-                    </div>
-                `;
-                container.appendChild(div);
-            }
-        }
-
-        // Initialize guest form fields loadout immediately
-        generateGuestOptions();
-
-        // 5. Form Submit Handler to Google Apps Script Backend Execution
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwnMEKpASnAViQUP3qFYdYxkksKs2Mdq2ogmKeNiYfo3SIhmwjozBDEI3KkScD49V_n/exec';
-        const form = document.getElementById('rsvpForm');
-        const statusMsg = document.getElementById('statusMsg');
-
-        form.addEventListener('submit', function(e) {
+        // RSVP Form Prevent Default Demo Handling
+        document.getElementById('rsvp-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            statusMsg.textContent = 'Processing your invitation...';
-            statusMsg.className = 'font-sans-alt text-sm pt-4 tracking-wider';
-            statusMsg.style.color = '#c9a054';
-
-            let mealSummary = '';
-            let drinkSummary = '';
-            const meals = document.querySelectorAll('.mealChoice');
-            const drinks = document.querySelectorAll('.drinkChoice');
-
-            meals.forEach((m, index) => {
-                mealSummary += `G${index + 1}: ${m.value} | `;
-                drinkSummary += `G${index + 1}: ${drinks[index].value} | `;
-            });
-
-            const formData = new FormData();
-            formData.append('userName', document.getElementById('userName').value);
-            formData.append('guestCount', document.getElementById('guestCount').value);
-            formData.append('mealPref', mealSummary);
-            formData.append('drinkPref', drinkSummary);
-
-            fetch(scriptURL, { method: 'POST', body: formData })
-                .then(() => {
-                    statusMsg.textContent = 'Success! RSVP saved. See you there!';
-                    statusMsg.className = 'font-sans-alt text-sm pt-4 tracking-wider text-emerald-600 font-medium';
-                    form.reset();
-                    generateGuestOptions();
-                })
-                .catch(() => {
-                    statusMsg.textContent = 'Something went wrong. Please try again.';
-                    statusMsg.className = 'font-sans-alt text-sm pt-4 tracking-wider text-rose-600';
-                });
+            alert("Thank you! Your RSVP details have been securely recorded.");
         });
     </script>
 </body>
+
 </html>

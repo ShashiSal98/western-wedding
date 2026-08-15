@@ -1,0 +1,140 @@
+/* --- Root Variables & Styling --- */
+  body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #f7f5f0;
+            overflow-x: hidden;
+        }
+        .font-handwritten {
+            font-family: 'Alex Brush', cursive;
+        }
+        .font-sans-alt {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* 3D Envelope Wrapper Styles */
+        #envelope-screen {
+            background-color: #415852; /* Sage / Dark Forest vibe */
+            perspective: 1000px;
+            transition: opacity 1s ease-in-out, visibility 1s;
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #4a5d4e; /* Sage base */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .envelope-wrapper:hover {
+            transform: translateY(-10px) rotateX(5px);
+        }
+
+        /* The Flap */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 110px solid #3d4f41; /* Slightly darker Sage */
+            transform-origin: top;
+            transition: transform 0.6s ease;
+            z-index: 4;
+        }
+
+        /* Envelope Greeting Label */
+        .envelope-greeting {
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            text-align: center;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #e2ddd5;
+            font-family: 'Montserrat', sans-serif;
+            z-index: 5;
+            pointer-events: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Inner Letter Card */
+        .letter-card {
+            position: absolute;
+            bottom: 5px;
+            left: 15px;
+            width: 270px;
+            height: 180px;
+            background-color: #fffdf9;
+            z-index: 2;
+            transition: transform 0.8s ease-in-out;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Front Pockets */
+        .envelope-front {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid #586e5c;
+            border-right: 150px solid #586e5c;
+            border-top: 100px solid transparent;
+            z-index: 3;
+        }
+        .envelope-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 100px solid #4a5d4e;
+            z-index: 3;
+        }
+
+        /* Wax Seal Stamp */
+        .wax-seal {
+            position: absolute;
+            top: 95px;
+            left: 135px;
+            width: 30px;
+            height: 30px;
+            background-color: #b89246;
+            border-radius: 50%;
+            z-index: 5;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+        }
+
+        /* Open State Animations */
+        .envelope-wrapper.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+        .envelope-wrapper.open .wax-seal {
+            opacity: 0;
+            transform: scale(0);
+        }
+        .envelope-wrapper.open .letter-card {
+            transform: translateY(-120px);
+            z-index: 5;
+        }
+
+        /* Audio Controls styling */
+        #music-control {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
