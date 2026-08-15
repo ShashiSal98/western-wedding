@@ -13,7 +13,7 @@
 
         /* 3D Envelope Wrapper Styles */
         #envelope-screen {
-            background-color: #415852; /* Sage / Dark Forest vibe */
+            background-color: #ffffff; /* White background */
             perspective: 1000px;
             transition: opacity 1s ease-in-out, visibility 1s;
         }
@@ -22,8 +22,8 @@
             position: relative;
             width: 300px;
             height: 200px;
-            background-color: #4a5d4e; /* Sage base */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            background-color: #f8f6f2; /* Soft white envelope base */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             cursor: pointer;
             transform-style: preserve-3d;
             transition: transform 0.5s ease;
@@ -42,7 +42,7 @@
             height: 0;
             border-left: 150px solid transparent;
             border-right: 150px solid transparent;
-            border-top: 110px solid #3d4f41; /* Slightly darker Sage */
+            border-top: 110px solid #e8e1d8; /* Light ivory flap */
             transform-origin: top;
             transition: transform 0.6s ease;
             z-index: 4;
@@ -59,7 +59,7 @@
             font-size: 0.6rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: #e2ddd5;
+            color: #545151;
             font-family: 'Montserrat', sans-serif;
             z-index: 5;
             pointer-events: none;
@@ -89,8 +89,8 @@
             left: 0;
             width: 0;
             height: 0;
-            border-left: 150px solid #586e5c;
-            border-right: 150px solid #586e5c;
+            border-left: 150px solid #f3efe9;
+            border-right: 150px solid #f3efe9;
             border-top: 100px solid transparent;
             z-index: 3;
         }
@@ -102,7 +102,7 @@
             height: 0;
             border-left: 150px solid transparent;
             border-right: 150px solid transparent;
-            border-bottom: 100px solid #4a5d4e;
+            border-bottom: 100px solid #f0ece7;
             z-index: 3;
         }
 
